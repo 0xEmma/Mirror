@@ -76,6 +76,9 @@ def admin():
 @app.route('/admin/updateSize', methods=["GET", "POST"])
 @requires_authorization
 def updateSize():
+    user = discord.fetch_user()
+    if user.id != 484040243818004491:
+        abort(418)
     Mirrors = Mirror.query.all()
     for mirror in Mirrors:
         size = getSize(mirror.path)
@@ -88,6 +91,9 @@ def updateSize():
 @app.route('/admin/delete/<string:name>', methods=['GET', 'POST'])
 @requires_authorization
 def deleteRecord(name):
+    user = discord.fetch_user()
+    if user.id != 484040243818004491:
+        abort(418)
     mirror = Mirror.query.filter_by(name=name).first()
     if mirror:
         db.session.delete(mirror)
