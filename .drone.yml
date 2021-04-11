@@ -1,6 +1,6 @@
 
 pipeline:
-  rtorrent:
+  build:
     image: plugins/docker
     repo: 0xemma/Mirror-Website
     tags: latest
