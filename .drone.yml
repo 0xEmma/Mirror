@@ -1,0 +1,8 @@
+
+pipeline:
+  rtorrent:
+    image: plugins/docker
+    repo: 0xemma/Mirror-Website
+    tags: latest
+    dockerfile: Dockerfile
+    secrets: [ docker_username, docker_password ]
