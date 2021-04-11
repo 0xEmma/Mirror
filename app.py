@@ -85,6 +85,16 @@ def updateSize():
     
     return redirect(url_for('admin', updatedSize=True))
 
+@app.route('/admin/delete/<string:name>', methods=['GET', 'POST'])
+@requires_authorization
+def deleteRecord(name):
+    mirror = Mirror.query.filter_by(name=name).first()
+    if mirror:
+        db.session.delete(mirror)
+        db.session.commit()
+    return redirect(url_for('admin'))
+
+
 def getSize(path):
     size = subprocess.check_output(['du','-sh', path]).split()[0].decode('utf-8')
     return size
