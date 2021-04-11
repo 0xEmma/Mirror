@@ -1,11 +1,11 @@
-{% extends base.html %}
+{% extends "base.html" %}
 
 {% block grid %}
-{{for card in cards}}
+{%for card in cards%}
 <div class="grid-cell">
     <div class="mirror-wrapper">
         <a class="mirror-link-wrapper" href="{{card.href}}">
-            <div class="mirror-logo" style="background-image: url({logo})">
+            <div class="mirror-logo" style="background-image: url(/static/logos/{{card.name}}.png)">
             </div>
             <div class="mirror-content">
                 <h6>{name}</h6>
@@ -20,4 +20,5 @@
         </a>
     </div>
 </div>
+{% endfor %}
 {% endblock %}

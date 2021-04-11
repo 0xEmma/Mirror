@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+</head>
+<body>
+    <p>Welcome {{user.name}}</p>
+    <h1>Create Mirror</h1>
+    <form method="POST">
+        Name:
+        <input type="text" name="name">
+        Link To Content:
+        <input type="text" name="href">
+        Size:
+        <input type="text" name="size">
+        Sync Time:
+        <input type="text" name="synctime">
+        <input type="submit" value="Submit">
+    </form>
+
+    Current Mirrors:
+    {% for sublist in mirrors %}
+       <p>{{ sublist.name }}</p>
+    {% endfor %}
+</body>
+</html>
