@@ -1,7 +1,5 @@
-FROM tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7
-RUN apk --update add bash nano gcc musl-dev g++
-ENV STATIC_URL /static
-ENV STATIC_PATH /var/www/app/static
-COPY ./requirements.txt /var/www/requirements.txt
-COPY . /var/www/app/
-RUN pip install -r /var/www/requirements.txt
+FROM python:latest
+COPY . .
+RUN pip3 install -r requirements
+RUN pip3 install gunicorn
+CMD gunicorn --workers=3 --bind 0.0.0.0:8000 app:app
