@@ -2,7 +2,7 @@
 pipeline:
   build:
     image: plugins/docker
-    repo: 0xemma/Mirror-Website
+    repo: 0xemma/mirrorweb
     tags: latest
     dockerfile: Dockerfile
     secrets: [ docker_username, docker_password ]
