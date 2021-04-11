@@ -14,10 +14,12 @@
         <input type="text" name="name">
         Link To Content:
         <input type="text" name="href">
-        Size:
-        <input type="text" name="size">
+        Path:
+        <input type="text" name="path">
         Sync Time:
         <input type="text" name="synctime">
+        
+        <input type="hidden" name="size" value="Not Calculated">
         <input type="submit" value="Submit">
     </form>
 
@@ -25,5 +27,10 @@
     {% for sublist in mirrors %}
        <p>{{ sublist.name }}</p>
     {% endfor %}
+
+    <button onclick="window.location.href='{{url_for('updateSize')}}'">Update Sizes</button>
+    {% if updatedSize is not none %}
+    <b>Updated Sizes!</b>
+    {% endif %}
 </body>
 </html>
