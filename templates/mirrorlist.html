@@ -1,0 +1,23 @@
+{% extends base.html %}
+
+{% block grid %}
+{{for card in cards}}
+<div class="grid-cell">
+    <div class="mirror-wrapper">
+        <a class="mirror-link-wrapper" href="{{card.href}}">
+            <div class="mirror-logo" style="background-image: url({logo})">
+            </div>
+            <div class="mirror-content">
+                <h6>{name}</h6>
+                <p>Size: <span id="mirror-{{card.name}}-size">{{card.size}}</span></p>
+                <p>Sync: <span id="mirror-{{card.name}}-lastsync">{{card.synctime}}</span></p>
+            </div>
+        </a>
+        <a class="mirror-help-wrapper" href="#" onclick="showHelp('{{card.name}}'); return false;">
+            <div>
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+            </div>
+        </a>
+    </div>
+</div>
+{% endblock %}

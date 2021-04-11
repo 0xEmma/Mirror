@@ -1,0 +1,41 @@
+<head>
+    <meta charset="utf-8" />
+    <title>mirror.0xem.ma</title>
+    <meta name="author" content="Emma Samms" />
+    <meta name="description" content="Mirror for Open-Source Content" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <link rel="stylesheet" href="{{url_for("static", filename="styles.css")}}" />
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="page">
+        <!-- .page-viewport wraps the whole content -->
+        <div class="page-viewport">
+            <!-- .page-content contains all the page specific content -->
+            <main class="page-main">
+                <section class="page-content">
+                    <section class="page-content-main">
+                        <h4>Official mirrors</h4>
+                        <div class="grid grid--12of12 grid-xs--12of12 grid-md--6of12 grid-lg--6of12">
+                        {% block grid %}
+
+
+                        {% endblock %}
+
+                    </section>
+                    <footer class="page-content-footer">
+                        <div id="bw-usage-bar">
+                            <img id="bw-usage-img" src="https://mirror.0xem.ma/traffic/eth0-day.png" alt="Bandwidth" />
+                            <img id="bw-usage-img" src="https://mirror.0xem.ma/traffic/Arch-day.png" alt="Bandwidth" />
+                            <img id="bw-usage-img" src="https://mirror.0xem.ma/traffic/Ubuntu-day.png"
+                                alt="Bandwidth" />
+                            <center>
+                                <pre id="bw-usage"></pre>
+                            </center>
+                        </div>
+                    </footer>
+                </section>
+            </main>
+        </div>
+    </div>
